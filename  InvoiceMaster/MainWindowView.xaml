@@ -137,7 +137,7 @@
                 <TextBox Text="{Binding Prize}" Height="50" Margin="0, 10, 0, 50"/>
             </StackPanel>
             <WebBrowser  Grid.Column="4" Grid.Row="1" Grid.RowSpan="6" Margin="20"
-                controls:WebBrowserUtility.BindableSource="C:\Users\Lama3\Desktop\Tanecni.pdf"/>
+                controls:WebBrowserUtility.BindableSource="{Binding Uri}"/>
         </Grid>
     </Grid>
 </Window>

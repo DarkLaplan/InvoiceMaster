@@ -1,4 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace InvoiceMaster
 {
@@ -21,6 +24,7 @@ namespace InvoiceMaster
         private string mainText;
         private string realizationDate;
         private string prize;
+        private string url;
 
         /// <summary>
         /// Base constructor.
@@ -38,9 +42,27 @@ namespace InvoiceMaster
         public ApplicationState AppState { get; set; }
 
         /// <summary>
+        /// Object manipulates with pdf file.
+        /// </summary>
+        public PdfManipulator PdfManipulator { get ; set; }
+
+        /// <summary>
         /// Gets or sets whatever is automatic compile allowed.
         /// </summary>
         public bool IsAutoCompileAllowed { get; set; }
+
+        /// <summary>
+        /// Gets or sets name of customer.
+        /// </summary>
+        public string Url
+        {
+            get { return url; }
+            set
+            {
+                url = value;
+                OnPropertyChanged(nameof(Url));
+            }
+        }
 
         /// <summary>
         /// Gets or sets name of customer.
@@ -251,17 +273,65 @@ namespace InvoiceMaster
 
         private void CompilePdf(object unused)
         {
-
+            PdfManipulator.CreateNewFile();
         }
 
         private void LoadPdfFile(object unused)
         {
-
+            PdfManipulator = new PdfManipulator(OpenDialog());
+            UpdateAllProperties(null);
         }
+
+        //private List<string> CollectData()
+        //{
+            
+            
+        //}
 
         private void ClearProperties(object unused)
         {
+            Task.Run(() =>
+            {
+                Name = string.Empty;
+                Address = string.Empty;
+                City = string.Empty;
+                PSC = string.Empty;
+                ICO = string.Empty;
+                DIC = string.Empty;
+                Bank = string.Empty;
+                AccountNumber = string.Empty;
+                PayDayDate = string.Empty;
+                PaymentMethod = string.Empty;
+                ExposureDate = string.Empty;
+                RealizationDate = string.Empty;
+                MainText = string.Empty;
+                Prize = string.Empty;
+            });
+        }
 
+        private void UpdateAllProperties(List<string> values)
+        {
+            
+        }
+
+        private string OpenDialog()
+        {
+            var fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Open a Text File";
+            fileDialog.Filter = "Adobe Acrobat Document (*.pdf) | *.pdf";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ShowMessage("PdfLoaded.");
+                return fileDialog.FileName;
+            }
+
+            return null;
+        }
+
+        private void ShowMessage(string message)
+        {
+            MessageBox.Show(message, "Information", MessageBoxButtons.OK);
         }
 
         #endregion

@@ -5,8 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InvoiceMaster"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="1100" Width="2000"
+        WindowState="Maximized">
+
+    <Grid Background="#D0D0D0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Height="32" Width="96" Margin="2"
+                    Content="Vytvoř fakturu"/>
+            <Button Height="32" Width="96" Margin="2"
+                    Content="Načíst fakturu"/>
+            <Button Height="32" Width="96" Margin="2"
+                    Content="Compile"/>
+            <Button Height="32" Width="64" Margin="2"/>
+            <CheckBox VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <TextBlock Margin="5, 0, 0, 0" VerticalAlignment="Center"
+                       Text="AutoCompileEnable"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*" MinHeight="300"/>
+                <RowDefinition Height="180"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
+                Text="Dodavatel" TextAlignment="Center" Width="300" HorizontalAlignment="Center" 
+                       Style="{StaticResource txtBlock}"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" 
+                Text="Odběratel" TextAlignment="Center" Width="300" HorizontalAlignment="Center" 
+                       Style="{StaticResource txtBlock}"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
+                Text="Platební podmínky" TextAlignment="Center" Width="300" HorizontalAlignment="Center" 
+                       Style="{StaticResource txtBlock}"/>
+            <TextBlock Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" 
+                Text="Odběratel" TextAlignment="Center" Width="300" HorizontalAlignment="Center" 
+                       Style="{StaticResource txtBlock}"/>
+            <TextBox Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4" Margin="10, 10, 10, 10"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" Style="{StaticResource stcPanel}">
+                <TextBlock Text="Jmeno:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Adresa:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Město a PSČ:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="IČO:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="DIČ:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Pěněžní ústav:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Číslo účtu:" Style="{StaticResource txtBlock}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1" Style="{StaticResource stcPanel}">
+                <TextBlock Text="Miroslav Lánský" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Kozákovská 516" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Semily 513 01" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="621 21 589" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="CZ-70 11 25/3436" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="KB Semily" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="191254770237/0100" Style="{StaticResource txtBlock}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="1" Style="{StaticResource stcPanel}">
+                <TextBlock Text="Jmeno:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Adresa:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Město a PSČ:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="IČO:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="DIČ:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Pěněžní ústav:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Číslo účtu:" Style="{StaticResource txtBlock}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="1" Style="{StaticResource stcPanel}">
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource stcPanel}">
+                <TextBlock Text="Den splatnosti:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Způsob úhrady:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Datum vystavení:" Style="{StaticResource txtBlock}"/>
+                <TextBlock Text="Datum uskutečnění zdan. plnění:" TextWrapping="Wrap" Style="{StaticResource txtBlock}" 
+                           Height="44" Margin="12,5,10,0" Width="131"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="3" Style="{StaticResource stcPanel}">
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}"/>
+                <TextBox Text=""  Style="{StaticResource txtBox}" Margin="0, 20, 0, 0"/>
+            </StackPanel>
+            <Grid Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="DPH 15%" Style="{StaticResource txtBlock}"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Text="DPH 25%" Style="{StaticResource txtBlock}"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="DPH Kč" Style="{StaticResource txtBlock}"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Bez DPH Kč" Style="{StaticResource txtBlock}"/>
+            </Grid>
+            <StackPanel Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2">
+                <TextBlock Text="Celkem k úhradě" Style="{StaticResource txtBlock}" VerticalAlignment="Top"/>
+                <TextBox Height="50" Margin="0, 10, 0, 50"/>
+            </StackPanel>
+            <WebBrowser Name="pdfWebViewer" Grid.Column="4" Grid.Row="1" Grid.RowSpan="6" Margin="20"/>
+        </Grid>
     </Grid>
 </Window>

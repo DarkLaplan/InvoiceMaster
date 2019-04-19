@@ -1,0 +1,30 @@
+[
+{
+    "version": "1.0.0.2",
+    "AddedFeatures": [
+      "Connection to github repository.",
+      "Public repositories are now dynamicly loaded.",
+      "Change-log for selected repository is loaded from Devops folder in specific repository."
+    ],
+    "FixedBugs": [
+      "Fix some bullshits in design."
+    ],
+    "FoundBugs": [
+      "Mini-Icons has wrong visibility."
+    ]
+},
+{
+    "version": "1.0.0.0",
+    "AddedFeatures": [
+      "Connection to github repository.",
+      "Public repositories are now dynamicly loaded.",
+      "Change-log for selected repository is loaded from Devops folder in specific repository."
+    ],
+    "FixedBugs": [
+      "Fix some bullshits in design."
+    ],
+    "FoundBugs": [
+      "Mini-Icons has wrong visibility."
+    ]
+}
+]
